@@ -61,13 +61,16 @@ body {
   }
 }
 
+.container{
+  height: 100vh;
+}
 .input-container{
   display: flex;
   flex-direction: column;
+  margin-top: -15vh;
   width: auto;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
   gap: 2vh;
 }
 
@@ -89,10 +92,23 @@ body {
   padding: 3px 10px 3px 10px;
 }
 
+.output-container{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 2vh;
+}
+
 @media (max-width: 768px) {
   .input-container input{
     width: 50vw;
     height: 3vh;
   }
   
+  .input-container{
+    margin-top: 0vh;
+  }
 }
