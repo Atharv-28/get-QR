@@ -12,9 +12,14 @@ async function run() {
     try {
       const url = req.body.url;
       console.log(url);
-      var qr_svg = qr.image(url);
-      qr_svg.pipe(fs.createWriteStream("qr_img.png"));
-      writeStream.on("finish", () => {
+      // Generate QR code
+      /*
+      var qr_svg = qr.image(url, { type: 'png' });
+      var qrPath = "qr_img.png";
+      var writeStream = fs.createWriteStream(qrPath);
+      qr_svg.pipe(writeStream);*/
+
+     writeStream.on("finish", () => {
         res.status(200).json({ message: "Success", qrPath: qrPath });
       });
 

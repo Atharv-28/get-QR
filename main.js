@@ -26,7 +26,6 @@ submit.addEventListener("click", function (e) {
       .catch((error) => {
         console.error('Error:', error);
         alert("An error occured, please try again");
-        return true;
       });
   }
   return false;
