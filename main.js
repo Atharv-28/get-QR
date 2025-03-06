@@ -21,14 +21,12 @@ submit.addEventListener("click", function (e) {
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
-        // Handle the response data here
-        // For example, display the QR code in the output element
-        // output.innerHTML = `<img src="${data.qr}" alt="QR Code">`;
         output.style.visibility = "visible";
-
       })
       .catch((error) => {
         console.error('Error:', error);
+        alert("An error occured, please try again");
+        return true;
       });
   }
   return false;
