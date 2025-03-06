@@ -1,3 +1,5 @@
+const qr  = require('qr-image');
+const fs = require('fs');
 const port = 5000;
 const cors = require('cors');
 const express = require('express');
@@ -10,8 +12,9 @@ async function run() {
 app.post('/getUrlQR', (req, res) => {
     const url = req.body.url;
     console.log(url);
-    const qr = url;
-    res.send(qr);
+    /*var qr_svg = qr.image(url);
+    qr_svg.pipe(fs.createWriteStream("qr_img.png"));*/
+    res.json({ 200: "Success" });
 });
 }
 
