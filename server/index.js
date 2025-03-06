@@ -1,12 +1,15 @@
 const port = 5000;
+const cors = require('cors');
 const express = require('express');
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 async function run() {
 
-app.get('/getUrlQR', (req, res) => {
-    const url = req.query.url;
+app.post('/getUrlQR', (req, res) => {
+    const url = req.body.url;
+    console.log(url);
     const qr = url;
     res.send(qr);
 });

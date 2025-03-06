@@ -1,7 +1,8 @@
 let output = document.getElementById("output");
 output.style.visibility = "hidden";
 let submit = document.getElementById("generate");
-submit.addEventListener("click", function () {
+submit.addEventListener("click", function (e) {
+  e.preventDefault();
   let url = document.getElementById("inputUrl").value;
   if (url === "") {
     alert("Please enter a URL !");
@@ -9,6 +10,24 @@ submit.addEventListener("click", function () {
   }
   else{
     console.log(url);
+      // Make a POST request to the backend
+      fetch('http://127.0.0.1:5000/getUrlQR', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ url: url })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        // Handle the response data here
+        // For example, display the QR code in the output element
+        output.innerHTML = `<img src="${data.qr}" alt="QR Code">`;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
     output.style.visibility = "visible";
   }
 });
