@@ -11,12 +11,14 @@
     <div class="container">
         <div class="input-container">
             <h1>Get Your QR Code </h1>
-            <input type="text" id="inputUrl" placeholder="Enter your URL">
-            <button class="gene" id="generate">Generate</button>
+            <form  id="formInput">
+                <input type="text" id="inputUrl" placeholder="Enter your URL">
+                <button class="gene" id="generate">Generate</button>
+            </form>
         </div>
         <div id="output" class="output-container">
-            <img src="./server/qr_img.png" alt="">
-             <a href="./server/qr_img.png" download="QR">
+            <img src="" alt="">
+             <a href="" download="QR">
                 <button class="gene">Download QR</button>
              </a>
         </div>
