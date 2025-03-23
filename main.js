@@ -1,12 +1,20 @@
-let submit = document.getElementById("generate");
-let form = document.getElementById("formIinput");
-let downBut = document.getElementById("down");
+document.addEventListener("DOMContentLoaded", function() {
+  let submit = document.getElementById("generate");
+  let downBut = document.getElementById("down");
 
-submit.addEventListener("click", function(e) {
-  generateQRCode(e);
+
+  if (submit) {
+    submit.addEventListener("click", function(e) {
+      generateQRCode(e);
+    });
+  }
+
+  if (downBut) {
+    downBut.addEventListener("click", function(e) {
+      downloadQRCode(e);
+    });
+  }
 });
-
-
 
 function generateQRCode(e) {
   e.preventDefault();
@@ -33,13 +41,18 @@ function qrGenerator(url){
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    location.replace("http://127.0.0.1:5500/QR.html")
     alert("QR code generated successfully");
+    window.location.replace("http://127.0.0.1:5500/QR.html")
   })
   .catch((error) => {
     console.error('Error:', error);
     alert("An error occurred, please try again");
   });
+}
+
+function downloadQRCode(e) {
+  e.preventDefault();
+  alert("Download started");
 }
 
 
