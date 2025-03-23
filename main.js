@@ -31,7 +31,7 @@ function generateQRCode(e) {
 }
 
 function qrGenerator(url){
-  fetch('http://127.0.0.1:5000/getUrlQR', {
+  fetch('http://127.0.0.1:5000/getUrlQR', { //change with backend url
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ function qrGenerator(url){
   .then(data => {
     console.log('Success:', data);
     // alert("QR code generated successfully");
-    location.replace("http://127.0.0.1:5500/QR.html")
+    location.replace("http://127.0.0.1:5500/QR.html") // change with frontend url
   })
   .catch((error) => {
     console.error('Error:', error);
