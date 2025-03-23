@@ -41,18 +41,12 @@ function qrGenerator(url){
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    alert("QR code generated successfully");
-    window.location.replace("http://127.0.0.1:5500/QR.html")
+    // alert("QR code generated successfully");
+    location.replace("http://127.0.0.1:5500/QR.html")
   })
   .catch((error) => {
     console.error('Error:', error);
     alert("An error occurred, please try again");
   });
 }
-
-function downloadQRCode(e) {
-  e.preventDefault();
-  alert("Download started");
-}
-
 
